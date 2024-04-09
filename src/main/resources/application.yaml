@@ -23,8 +23,8 @@ spring:
           predicates:
             - Path=/partner/**
         
-        - id: store-product
-          uri: lb://store-product
+        - id: store-products
+          uri: lb://store-products
           predicates:
             - Path=/products/**
 
@@ -54,4 +54,5 @@ api:
       POST /auth/login,
       ANY /auth/actuator,
       ANY /accounts/actuator,
-      ANY /partner/actuator
+      ANY /partner/actuator,
+      ANY /products/actuator
