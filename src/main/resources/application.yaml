@@ -22,9 +22,14 @@ spring:
           uri: lb://store-partner
           predicates:
             - Path=/partner/**
+        
+        - id: store-product
+          uri: lb://store-product
+          predicates:
+            - Path=/products/**
 
         - id: insper
-          uri: https://www.insper.edu.br
+          uri: https://hsandmann.github.io/
           predicates:
             - Path=/
 
