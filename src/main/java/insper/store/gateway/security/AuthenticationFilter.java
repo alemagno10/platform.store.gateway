@@ -29,19 +29,19 @@ public class AuthenticationFilter implements GlobalFilter {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         final ServerHttpRequest request = exchange.getRequest();
-        // System.out.println("AQUIIIII -> " +  (routerValidator.openApiEndpoints));
-        // verificar se a rota eh segura
         if (!routerValidator.isSecured.test(request)) {
             return chain.filter(exchange);
         }
-        // verificar se o cabecalho de autenticacao esta presente
+
         if (isAuthMissing(request)) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Missing authorization header.");
         }
+
         final String[] parts = getAuthHeader(request).split(" ");
         if (parts.length != 2 || !parts[0].equals("Bearer")) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid authorization header.");
         }
+        
         final String token = parts[1];
         return webClient
             .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)

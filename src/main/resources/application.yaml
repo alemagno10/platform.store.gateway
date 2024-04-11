@@ -55,4 +55,14 @@ api:
       ANY /auth/actuator,
       ANY /accounts/actuator,
       ANY /partner/actuator,
-      ANY /products/actuator
+      ANY /products/actuator,
+      ANY /gateway/actuator,
+      ANY /auth/v3**,
+      ANY /auth/swagger**,
+      ANY /accounts/v3**,
+      ANY /accounts/swagger**,
+      ANY /products/v3**,
+      ANY /products/swagger**,
+      ANY /partner/v3**,
+      ANY /partner/swagger**
+
