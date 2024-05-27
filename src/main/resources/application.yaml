@@ -12,26 +12,28 @@ spring:
           uri: lb://store-auth
           predicates:
             - Path=/auth/**
-
         - id: store-account
           uri: lb://store-account
           predicates:
             - Path=/accounts/**
-        
         - id: store-partner
           uri: lb://store-partner
           predicates:
             - Path=/partner/**
-        
         - id: store-products
           uri: lb://store-products
           predicates:
             - Path=/products/**
-
         - id: insper
           uri: https://hsandmann.github.io/
           predicates:
             - Path=/
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: insper
+      auto-offset-reset: earliest
 
 management:
   endpoints:
@@ -59,10 +61,4 @@ api:
       ANY /gateway/actuator,
       ANY /auth/v3**,
       ANY /auth/swagger**,
-      ANY /accounts/v3**,
-      ANY /accounts/swagger**,
-      ANY /products/v3**,
-      ANY /products/swagger**,
-      ANY /partner/v3**,
-      ANY /partner/swagger**
-
+      A
