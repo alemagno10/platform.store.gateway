@@ -61,4 +61,9 @@ api:
       ANY /gateway/actuator,
       ANY /auth/v3**,
       ANY /auth/swagger**,
-      A
+      ANY /accounts/v3**,
+      ANY /accounts/swagger**,
+      ANY /products/v3**,
+      ANY /products/swagger**,
+      ANY /partner/v3**,
+      ANY /partner/swagger**
